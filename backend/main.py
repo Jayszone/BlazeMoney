@@ -6,7 +6,7 @@ app = FastAPI(title="Blaze UGC Brief Generator API")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000", "http://localhost:3001", "https://blazemoney.onrender.com", "https://blazemoney-1.onrender.com", "https://blazemoney-2.onrender.com"],
+    allow_origins=["*"],
     allow_methods=["*"],
     allow_headers=["*"],
 )
