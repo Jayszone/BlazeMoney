@@ -170,10 +170,8 @@ def llm_complete(prompt: str, max_tokens: int = 4000, temperature: float = 0.7) 
     try:
         return call_groq_json(prompt, max_tokens, temperature)
     except Exception as e:
-        if "rate_limit" in str(e).lower() or "429" in str(e):
-            logger.warning("Groq rate-limited, falling back to OpenRouter")
-            return openrouter_complete(prompt, max_tokens)
-        raise
+        logger.warning(f"Groq failed ({e}), falling back to OpenRouter")
+        return openrouter_complete(prompt, max_tokens)
 
 
 # ── Request models ─────────────────────────────────────────────────────────────
