@@ -33,6 +33,16 @@ OPENROUTER_FALLBACKS = [
 
 router = APIRouter()
 
+
+@router.get("/health")
+def health():
+    groq_key = os.getenv("GROQ_API_KEY")
+    return {
+        "groq_key_set": bool(groq_key),
+        "groq_key_prefix": groq_key[:8] + "..." if groq_key else None,
+        "openrouter_keys": len(OPENROUTER_KEYS),
+    }
+
 # ── Corridor data ──────────────────────────────────────────────────────────────
 
 CORRIDORS = {
