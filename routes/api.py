@@ -177,11 +177,7 @@ def call_groq_json(prompt: str, max_tokens: int = 4000, temperature: float = 0.7
 
 
 def llm_complete(prompt: str, max_tokens: int = 4000, temperature: float = 0.7) -> str:
-    try:
-        return call_groq_json(prompt, max_tokens, temperature)
-    except Exception as e:
-        logger.warning(f"Groq failed ({e}), falling back to OpenRouter")
-        return openrouter_complete(prompt, max_tokens)
+    return call_groq_json(prompt, max_tokens, temperature)
 
 
 # ── Request models ─────────────────────────────────────────────────────────────
