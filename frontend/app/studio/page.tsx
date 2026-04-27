@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import { loadCampaign, saveCampaign } from "../lib/store";
 import type { Campaign, Script } from "../lib/types";
 
-const API = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:8003";
+const API = (process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:8003").replace(/\/$/, "");
 
 const ANGLE_COLORS: Record<string, string> = {
   "Fee Shock":      "#FF2D55",

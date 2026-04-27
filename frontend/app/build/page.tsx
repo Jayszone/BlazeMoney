@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { saveCampaign, saveBriefInput } from "../lib/store";
 import type { Campaign } from "../lib/types";
 
-const API = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:8003";
+const API = (process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:8003").replace(/\/$/, "");
 const SCRIPT_COUNTS = [2, 3, 4, 5, 6];
 
 const LOADING_MSGS = [
